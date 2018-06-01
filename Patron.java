@@ -1,7 +1,6 @@
 package assignment2;
 /**
- * This class models a Patron with the ability to use either
- * Strings or Abstract coding
+ * This class models a Patron 
  * @author DennisQiu
  */
 
@@ -36,8 +35,6 @@ public class Patron {
 		patronCount++;
 	}
 	
-	//getters
-	//Strings
 	/**
 	 * gets the ID of a patron object
 	 * @return the ID of a patron object
@@ -54,7 +51,6 @@ public class Patron {
 		return patronName;
 	}
 	
-	//setters
 	/**
 	 * sets to the ID of a patron object
 	 * @param patronID the unique identifier of a patron object
@@ -69,10 +65,7 @@ public class Patron {
 	 */
 	public void setPatronName(String patronName) {
 		this.patronName = patronName;
-	}
-	
-	//Abstract
-	
+	}	
 	
 	/**
 	 *sets a new value to patronCount 
@@ -92,7 +85,6 @@ public class Patron {
 		myBooks.add(b);
 	}
 	
-	//String print
 	/**
 	 * prints out each entry of the patron objects
 	 * ID and name associated with patrons Array list text file data
