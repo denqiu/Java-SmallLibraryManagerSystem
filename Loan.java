@@ -1,36 +1,14 @@
 package assignment2;
 /**
- * This class models a Loan with the ability to use either
- * Strings or Abstract coding
+ * This class models a Loan 
  * @author DennisQiu
  */
 
 public class Loan {
 
-	//Loan properties
-	//Strings
-	private String loanBookID;
-	private String loanPatronID;
-	private String loanDueDate;
-	//Abstract 
 	private Book aBook;
 	private Patron aPatron;
 	
-	//Constructor for Strings
-	/**
-	 * This constructor models a loan with its
-	 * loaned book ID, loaned patron ID, and the due date of the loaned book
-	 * @param loanBookID the unique identifier of the loaned book
-	 * @param loanPatronID the unique identifier of the patron who has the loaned book
-	 * @param loanDueDate the date that the loaned book is due
-	 */
-	public Loan(String loanBookID, String loanPatronID, String loanDueDate) {
-		this.loanBookID = loanBookID;
-		this.loanPatronID = loanPatronID;
-		this.loanDueDate = loanDueDate;
-	}
-	
-	//Constructor for Abstract 
 	/**
 	 * This constructor models a loan with its
 	 * book object, patron object, and the due date of the loaned book
@@ -44,8 +22,6 @@ public class Loan {
 		this.loanDueDate = loanDueDate;
 	}
 	
-	//getters
-	//Strings
 	/**
 	 * gets the ID of the loaned book
 	 * @return the ID of the loaned book
@@ -70,7 +46,6 @@ public class Loan {
 		return loanDueDate;
 	}
 	
-	//Abstract 
 	/**
 	 * gets a book object
 	 * @return a book object
@@ -87,8 +62,6 @@ public class Loan {
 		return aPatron;
 	}
 	
-	//setters
-	//Strings
 	/**
 	 * sets to the ID of the loaned book
 	 * @param loanBookID the unique identifier of the loaned book
@@ -113,7 +86,6 @@ public class Loan {
 		this.loanDueDate = loanDueDate;
 	}
 	
-	//Abstract
 	/**
 	 * sets to the ID of the book object
 	 * @param bookID the unique identifier of a book object
@@ -130,8 +102,6 @@ public class Loan {
 		this.aPatron = patronID;
 	}
 	
-	//String prints
-	//Strings
 	/**
 	 * prints out each entry of the book ID, patron ID, and due date 
 	 * associated with loans Array List text file data
@@ -141,12 +111,6 @@ public class Loan {
 		return loanBookID + " | " + loanPatronID + " | " + loanDueDate;
 	}
 	
-	//Abstract 
-	/*
-	NOTE that returning aBook and aPatron returns the full Book and Patron objects
-	Meaning Book with its bookID, title, author, year and Patron with its patronID and patronName
-	ONLY want bookID and patronID, NOT the full objects
-	*/		
 	/**
 	 * prints out each entry of the book object, patron object, and due date
 	 * associated with loans Array List text file data
