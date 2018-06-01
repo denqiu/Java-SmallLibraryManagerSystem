@@ -1,7 +1,6 @@
 package assignment2;
 /**
-* This class models a library of books, patrons, and loans with the ability to use either
-* Strings or Abstract coding
+* This class models a library of books, patrons, and loans 
 * @author DennisQiu
 */ 
 
@@ -54,7 +53,7 @@ public class LibManagerSmall {
 			case 6:
 				showBorrowedBooks();
 				break;
-            case 7:
+           		case 7:
 				returnBook();
 				break;
 			case 8:
@@ -83,15 +82,6 @@ public class LibManagerSmall {
 	/* MAKE NO CHANGES ABOVE THIS LINE */
 	/* COMPLETE ALL THE CODE STUBS BELOW */
 
-	/*
-	B1002	;    My New Book 	;	 Dennis Qiu 	;	 2018
-	B1003 	;	 My Next Book 	;	 Dennis Qiu 	;	 2020
-	B1004 	;	 My Last Book 	;	 Dennis Qiu 	;	 2030
-	B1005 	;	 Bored 	;	 Dennis Qiu 	;	 1500
-	B1006 	;	 DQIU 	;	 Dennis Qiu 	;	 2015
-	B1007 	;	 Nope 	;	 Dennis Qiu 	;	 2222
-	B1008 	;	 ReNew 	;	 Dennis Qiu 	;	 5050
-	 */
 	/**
 	 * This method reads out the data in this text file associated with books
 	 * Should open this named file
@@ -133,19 +123,6 @@ public class LibManagerSmall {
 		return bookList;
 	}
 
-	/*
-	P1001    Qiu
-	P1002    Dennis
-	P1003    Dennis Qiu
-	P1004    Teddy
-	P1005    Laptop
-	P1006    QIU
-	P1007    DENNIS
-	P1008    DQIU
-	P1009    LAPTOP
-	P1010    TEDDY
-	P1011    DENNIS
-	 */
 	/**
 	 * This method reads out the data in this text file associated with patrons
 	 * Should open this named file
@@ -185,12 +162,6 @@ public class LibManagerSmall {
 		return patronList;
 	}
 
-	/*
-	B101,P102,2018-02-15
-	B102,P103,2018-01-06
-	B103,P11,2018-03-19
-	B135,P110,2018-01-03
-	*/
 	/**
 	 * This method reads out the data in this text file associated with loans
 	 * Should open this named file
@@ -218,12 +189,6 @@ public class LibManagerSmall {
 				String loanPatronID = data[1].trim();
 				String loanDueDate = data[2].trim();
 				
-				//Strings
-				/*Loan loan = new Loan(loanBookID, loanPatronID, loanDueDate);
-				loanList.add(loan);
-				System.out.println(loan.toString());*/
-				
-				//Abstract
 				Book loanBook = null;
 				Patron loanPatron = null;
 				
@@ -243,47 +208,14 @@ public class LibManagerSmall {
 				System.out.println(loan.toAbstract());
 			}
 			scannerLoan.close();
-
-			//Strings
-			/*for (Loan loanBook: loanList) {
-				String loanBookID = loanBook.getLoanBookID();
-				for (Book borrowedBook: bookList) {
-					if (loanBookID.equals(borrowedBook.getBookID())) {
-						borrowedBook.setBorrowerID(loanBook.getLoanPatronID());
-					}
-				}
-			}*/
 		} 
 		catch (IOException e) {
 			e.printStackTrace();
 		}		
-        System.out.printf("%n");
+        	System.out.printf("%n");
 		return loanList;
 	}
-
-	//Strings
-	/**
-	 * This method generates the next available new unique book ID in the library
-	 */
-	/*private String generateNextBookID() {
-        String nextBookID;    
-        String bookID;
-        String arrayBookID[];
-        Integer lastBookID = 0;
-        
-        for (Book book: bookList) {
-        	    bookID = book.getBookID();
-        	    arrayBookID = bookID.split("B"); //B101: ["B", "101"]-->["", "101"]
-        	    if ( Integer.valueOf(arrayBookID[1]) > lastBookID ) {
-        	    	lastBookID = Integer.valueOf(arrayBookID[1]);
-        	    }
-        }
-        nextBookID = "B" + String.valueOf(lastBookID + 1);
-        System.out.println("Next available book ID is " + nextBookID);
-        return nextBookID;      
-	}*/
 	
-	// Abstract
 	/**
 	 * Finds the largest book ID and increments 
 	 * This allows library to always expand 
@@ -321,42 +253,14 @@ public class LibManagerSmall {
         System.out.println("Enter the year of publication of new book: ");     
         String addYear = scanner.nextLine();	    
         
-        //Strings
-       /* String generateNewBookID = generateNextBookID();  
-        Book addNewBook = new Book(generateNewBookID, addTitle, addAuthor, addYear);*/
-        
-        //Abstract
         Book generateNewBookID = new Book();
         Book addNewBook = new Book(generateNewBookID.getBookID(), addTitle, addAuthor, addYear);
         bookList.add(addNewBook);
        
-		System.out.println("New Book added: " + addNewBook.toString());
+	System.out.println("New Book added: " + addNewBook.toString());
         System.out.printf("%n");
 	}
 	
-	//Strings
-	/**
-	 * This method generates the next available new unique patron ID
-	 */
-	/*private String generateNextPatronID() {
-        String nextPatronID;    
-        String patronID;
-        String arrayPatronID[];
-        Integer lastPatronID = 0;
-        
-        for (Patron patron: patronList) {
-        	    patronID = patron.getPatronID();
-        	    arrayPatronID = patronID.split("P"); //P101: ["P", "101"]-->["", "101"]
-        	    if ( Integer.valueOf(arrayPatronID[1]) > lastPatronID ) {
-        	    	    lastPatronID = Integer.valueOf(arrayPatronID[1]);
-        	    }
-        }
-        nextPatronID = "P" + String.valueOf(lastPatronID + 1);
-        System.out.println("Next available patron ID is " + nextPatronID);
-        return nextPatronID;      
-	}*/
-	
-	// Abstract
 	/**
 	 * Finds the largest patron ID and increments 
 	 * This allows library to always expand 
@@ -379,7 +283,7 @@ public class LibManagerSmall {
 	/**
 	 * This method should prompt for the name of the patron
 	 * Adds a new patron to the library's list of patrons
-     * Patron ID is automatically generated by Patron constructor
+         * Patron ID is automatically generated by Patron constructor
 	 */
 	private void addPatron() {
         System.out.println("Executing addPatron");     
@@ -388,11 +292,6 @@ public class LibManagerSmall {
         System.out.println("Enter the name of new Patron: ");
         String addPatron = scanner.nextLine();
         
-        //Strings
-        /*String generateNewPatronID = generateNextPatronID();  
-        Patron addNewPatron = new Patron(generateNewPatronID, addPatron);*/
-        
-        //Abstract
         Patron generateNewPatronID = new Patron();
         Patron addNewPatron = new Patron(generateNewPatronID.getPatronID(), addPatron);
         patronList.add(addNewPatron);
@@ -481,48 +380,26 @@ public class LibManagerSmall {
         System.out.print("Enter book ID: ");
         String bookID = scanner.nextLine();
         
-		System.out.printf("%n");
+	System.out.printf("%n");
         if (!locateBook(bookID)) {
         	System.out.println("No book found with ID " + bookID);
         	System.out.printf("%n");
         	return;
-        }   
-        
-        //Strings
-		/*for (Book book: bookList) {
-			if (book.getBookID().equals(bookID)) {
-				String borrowerID = book.getBorrowerID();
-				if (borrowerID.equals("")) {
-					System.out.println("This book with ID " + bookID 
-							+ " is currently not checked out");
-				} 
-				else {
-					for (Patron patron: patronList) {
-						if (patron.getPatronID().equals(borrowerID)) {
-							System.out.println(patron.getPatronName() 
-									+ " currently owns this borrowed book with its given ID " 
-									+ bookID);
-						}
-					}
-				}
-			}
-		}*/
-        
-        //Abstract
-		String patron = "";
-		for (Loan loan : loanList) {
-			if (loan.getABook().getBookID().equals(bookID)) {
+        }  
+	String patron = "";
+	for (Loan loan : loanList) {
+		if (loan.getABook().getBookID().equals(bookID)) {
 				
-				System.out.printf("%n");
-				System.out.println("Found loan entry matching the bookID " + bookID);
-				patron = loan.getAPatron().getPatronName();
-				System.out.println(patron + " currently owns this borrowed book with its given ID " 
-				+ bookID);
-			}
+			System.out.printf("%n");
+			System.out.println("Found loan entry matching the bookID " + bookID);
+			patron = loan.getAPatron().getPatronName();
+			System.out.println(patron + " currently owns this borrowed book with its given ID " 
+			+ bookID);
 		}
-		if (patron == "") {
-			System.out.println("This book is currently not checked out");
-		}
+	}
+	if (patron == "") {
+		System.out.println("This book is currently not checked out");
+	}
     	System.out.printf("%n");
 	}
 	
@@ -544,7 +421,7 @@ public class LibManagerSmall {
 	/**
 	 * This method should prompt for a patron ID
 	 * List bookID, title, author, publication year for all the books 
-     * currently borrowed by that patron
+   	 * currently borrowed by that patron
 	 */
 	private void showBorrowedBooks() {
         System.out.println("Executing showBorrowedBooks");
@@ -562,20 +439,6 @@ public class LibManagerSmall {
     	System.out.printf("%n");
 		System.out.println("This patron with given ID " + patronID
 				+ " currently owns these borrowed books:");
-
-		//Strings
-        /*for (Loan loan: loanList) {
-			if (loan.getLoanPatronID().equals(patronID)) {
-				String borrowedBookID = loan.getLoanBookID();
-				for (Book book: bookList) {
-					if (book.getBookID().equals(borrowedBookID)) {
-						System.out.println(book.toString());
-					}
-				}
-			}
-		}*/
-		
-		//Abstract
 		Patron patronObject = null;
 		for (Patron patron: patronList) {
 			if (patron.getPatronID().equals(patronID)) {
@@ -590,14 +453,14 @@ public class LibManagerSmall {
 		System.out.printf("%n");
 	}
 
-	/**
-	 * This method should allow a book that is currently checked out 
-	 * to be returned in the manner described below:
+    /**
+     * This method should allow a book that is currently checked out 
+     * to be returned in the manner described below:
      * Prompt for book ID
      * Use this book ID to find the book that the patron wishes to return
      * If the book is checked out, return the book
      * The book should no longer be shown as being checked out to the borrower
-	 */
+     */
     private void returnBook() {
 		System.out.println("Executing returnBook");		
 		Scanner scanner = new Scanner(System.in);
@@ -612,32 +475,6 @@ public class LibManagerSmall {
 			return;
 		}
 		
-		//Strings
-		/*for (Book book : bookList) {
-			if (book.getBookID().equals(bookID)) {
-				String borrower = book.getBorrowerID();
-				if (borrower.equals("")) {
-					System.out.println("This book with ID " + bookID 
-							+ " is currently not checked out");
-					return;
-				} 
-				else {
-					book.setBorrowerID("");
-					System.out.println("This book with ID " + bookID + " is now returned");
-				}
-			}
-		}
-		System.out.printf("%n");
-
-		Loan removeLoanEntry = null;
-		for (Loan loan: loanList) {
-			if (loan.getLoanBookID().equals(bookID)) {
-				removeLoanEntry = loan;
-			}
-		}
-		loanList.remove(removeLoanEntry);*/
-		
-		//Abstract
 		Loan removeLoanEntry = null;
 		for (Book book: bookList) {
 			if (book.getBookID().equals(bookID)) {
