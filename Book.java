@@ -1,7 +1,6 @@
 package assignment2;
 /**
- * This class models a Book with the ability to use either
- * Strings or Abstract coding
+ * This class models a Book
  * @author DennisQiu
  */
 
@@ -42,7 +41,6 @@ public class Book {
 		bookCount++;
 	}
 	
-	//getters
 	/**
 	 * gets the ID of a book
 	 * @return the ID of a book
@@ -83,7 +81,6 @@ public class Book {
 		return borrowerID;
 	}
 	
-	//setters
 	/**
 	 * sets to the ID of a book
 	 * @param bookID the unique identifier of a book
@@ -133,7 +130,6 @@ public class Book {
 		bookCount = bCount;
 	}
 	
-	//String prints
 	/**
 	 * prints out each entry of the book ID, title name, author name, and year of publication
 	 * @return ID, title, author, and year associated with books Array List text file data
